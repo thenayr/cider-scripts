@@ -81,8 +81,6 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 # Show POSIX path as finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 #
-# Finder status bar originating from $HOME instead of /
-defaults write /Library/Preferences/com.apple.finder PathBarRootAtHome -bool YES
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
@@ -99,3 +97,13 @@ killall Dock
 
 echo "Run cider setup"
 cider restore
+
+if [ ! -d "~/.config/omf" ]; then
+  echo "Oh my fish already installed"
+else
+  echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/fish
+  curl -L http://get.oh-my.fish | fish
+fi
+
+echo ">>>>>>>>Finished<<<<<<<<"

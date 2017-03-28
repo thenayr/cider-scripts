@@ -1,9 +1,6 @@
 {
     "after-scripts": [
-	"brew linkapps",
-        "echo '/usr/local/bin/fish' | sudo tee -a /etc/shells",
-	"chsh -s /usr/local/bin/fish",
-	"curl -L http://get.oh-my.fish | fish"
+	"brew linkapps"
     ],
     "casks": [
         "dropbox",
