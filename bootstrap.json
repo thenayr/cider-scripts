@@ -1,0 +1,30 @@
+{
+    "after-scripts": [
+	"brew linkapps",
+        "echo '/usr/local/bin/fish' | sudo tee -a /etc/shells",
+	"chsh -s /usr/local/bin/fish",
+	"curl -L http://get.oh-my.fish | fish"
+    ],
+    "casks": [
+        "dropbox",
+        "firefox",
+        "flux",
+        "google-chrome",
+        "jumpcut",
+	"docker",
+	"1password",
+	"adobe-creative-cloud",
+	"tunnelblick",
+	"amethyst",
+	"littlesnitch"
+    ],
+    "formulas": [
+        "bash",
+        "fish",
+        "git",
+        "kubectl",
+        "python3",
+        "tmux",
+        "wget"
+    ]
+}
