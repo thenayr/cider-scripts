@@ -8,11 +8,31 @@ else
   xcode-select --install
 fi
 
+exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+
 echo "Installing pip"
-sudo easy_install pip
+if exists pip; then
+  echo "Pip already installed"
+else
+  sudo easy_install pip
+fi
 
 echo "Installing cider"
-sudo pip install -U cider
+if exists cider; then
+  echo "Cider already installed"
+else
+  sudo pip install -U cider
+fi
+
+echo "Installing homebrew"
+if exists brew; then
+  echo "Brew already installed"
+else
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 echo "Run cider setup"
 cider restore
