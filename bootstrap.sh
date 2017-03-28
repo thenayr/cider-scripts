@@ -50,8 +50,10 @@ defaults write com.apple.loginwindow PowerButtonSleepsSystem -bool NO
 # Accelerated playback on window size adjustment for Cocoa apps
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
-# Faster keystroke reactions
-defaults write NSGlobalDomain KeyRepeat -int 0
+# Faster keystroke reactions for OSX Sierra
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false 
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Disable crash reporter
 defaults write com.apple.CrashReporter DialogType none
