@@ -34,8 +34,8 @@ else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo "Run cider setup"
-cider restore
+
+echo "Setting optimizations for osx"
 
 # Disable Photos app to open automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
@@ -93,5 +93,9 @@ defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 # Restart Finder & Dock
+echo "Restarting finder and dock"
 killall Finder
 killall Dock
+
+echo "Run cider setup"
+cider restore
