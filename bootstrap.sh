@@ -37,6 +37,14 @@ fi
 
 echo "Setting optimizations for osx"
 
+if [ -d "$HOME/Documents/Screenshots" ]; then
+  echo "Screenshots folder exists"
+else
+  mkdir -p $HOME/Documents/Screenshots
+  # Change screenshot folder
+  defaults write com.apple.screencapture location ~/Documents/Screenshots
+fi
+
 # Disable Photos app to open automatically
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
@@ -92,6 +100,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+#For diskstation
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
 # Restart Finder & Dock
 echo "Restarting finder and dock"
 killall Finder
@@ -100,12 +111,40 @@ killall Dock
 echo "Run cider setup"
 cider restore
 
-if [ ! -d "~/.config/omf" ]; then
+if [ -d "$HOME/.config/omf" ]; then
   echo "Oh my fish already installed"
 else
   echo '/usr/local/bin/fish' | sudo tee -a /etc/shells
   chsh -s /usr/local/bin/fish
   curl -L http://get.oh-my.fish | fish
+  # Install BTF theme
+  omf install bobthefish
+fi
+
+if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+  echo "Vundle already installed, skipping"
+else
+  echo "Cloning Vundle"
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+if [ -d "$HOME/code/base16-iterm2" ]; then
+  echo "base 16 already cloned"
+else
+  echo "Clone ocean theme"
+  mkdir -p ~/code && cd ~/code
+  git clone https://github.com/chriskempson/base16-iterm2.git
+fi
+
+if [ -d "$HOME/code/fonts" ]; then
+  echo "Fonts already exists"
+else
+  echo "Clone fonts"
+  # clone
+  cd $HOME/code && git clone https://github.com/powerline/fonts.git
+  # install
+  cd fonts
+  ./install.sh
 fi
 
 echo ">>>>>>>>Finished<<<<<<<<"

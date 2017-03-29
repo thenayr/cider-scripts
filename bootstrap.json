@@ -4,9 +4,12 @@
     ],
     "casks": [
         "dropbox",
+	"slack",
+	"vlc",
         "firefox",
         "flux",
         "google-chrome",
+	"iterm2",
         "jumpcut",
 	"docker",
 	"1password",
@@ -22,6 +25,7 @@
         "kubectl",
         "python3",
         "tmux",
+	"reattach-to-user-namespace",
         "wget"
     ]
 }
