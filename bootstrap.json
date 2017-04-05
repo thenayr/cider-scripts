@@ -1,22 +1,21 @@
 {
     "after-scripts": [
-	"brew linkapps"
+        "brew linkapps"
     ],
     "casks": [
         "dropbox",
-	"slack",
-	"vlc",
+        "slack",
+        "vlc",
         "firefox",
         "flux",
         "google-chrome",
-	"iterm2",
+        "iterm2",
         "jumpcut",
-	"docker",
-	"1password",
-	"adobe-creative-cloud",
-	"tunnelblick",
-	"amethyst",
-	"little-snitch"
+        "docker",
+        "1password",
+        "tunnelblick",
+        "amethyst",
+        "little-snitch"
     ],
     "formulas": [
         "bash",
@@ -25,7 +24,10 @@
         "kubectl",
         "python3",
         "tmux",
-	"reattach-to-user-namespace",
+        "vim",
+        "reattach-to-user-namespace",
+        "awscli",
+        "jq",
         "wget"
     ]
 }
