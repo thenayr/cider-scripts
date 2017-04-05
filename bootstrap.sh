@@ -27,6 +27,13 @@ else
   sudo pip install -U cider
 fi
 
+echo "Installing pigmentyze"
+if exists pygmentize; then
+  echo "Pygments already installed"
+else
+  sudo easy_install Pygments
+fi
+
 echo "Installing homebrew"
 if exists brew; then
   echo "Brew already installed"
