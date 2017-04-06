@@ -126,6 +126,12 @@ else
   curl -L http://get.oh-my.fish | fish
   # Install BTF theme
   omf install bobthefish
+  # Install AWS package
+  omf install aws
+  # Install tmux package
+  omf install tmux-zen
+  # Install bash-like export
+  omf install export
 fi
 
 if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
